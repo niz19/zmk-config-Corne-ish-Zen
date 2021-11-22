@@ -13,10 +13,24 @@
 #define NUMBER 1
 #define SYMBOL 2
 #define MEDIA  3
-/ {
 
-  combos {
-    #include "combos.dtsi"
+/ {
+    combos {
+        compatible = "zmk,combos";
+  
+    #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+      combo_##NAME { \
+        bindings = <BINDINGS>; \
+        key-positions = <KEYPOS>; \
+        layers = <LAYERS>; \
+      };
+
+    /* KEYPRESSES */
+    COMBO(tab, &kp TAB, 15 16, BASE)
+    COMBO(enter, &kp ENTER, 38 39, BASE)
+    COMBO(left_parenthesis, &kp LEFT_PARENTHESIS, 6 7, BASE)
+    COMBO(right_parenthesis, &kp RIGHT_PARENTHESIS, 7 8, BASE)
+
   };
 
 / {
