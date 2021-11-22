@@ -13,11 +13,34 @@
 #define NUMBER 1
 #define SYMBOL 2
 #define MEDIA  3
-/ {
 
-  combos {
-    #include "combos.dtsi"
-  };
+/ {
+    combos {
+        compatible = "zmk,combos";
+        
+        combo_tab {
+          timeout-ms = <50>;
+          key-positions = <15 16>;
+          bindings = <&kp TAB>;
+        };
+        
+        combo_enter {
+          timeout-ms = <50>;
+          key-positions = <38 39>;
+          bindings = <&kp ENTER>;
+        };
+
+        combo_leftpar {
+          timeout-ms = <50>;
+          key-positions = <6 7>;
+          bindings = <&kp LEFT_PARENTHESIS>;
+        };
+
+        combo_rightpar {
+          timeout-ms = <50>;
+          key-positions = <7 8>;
+          bindings = <&kp RIGHT_PARENTHESIS>;
+        };
 
 / {
   keymap {
