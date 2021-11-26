@@ -35,7 +35,7 @@
           key-positions = <6 7>;
           bindings = <&kp LEFT_PARENTHESIS>;
         };
-
+};
         keymap {
             compatible = "zmk,keymap";
 
