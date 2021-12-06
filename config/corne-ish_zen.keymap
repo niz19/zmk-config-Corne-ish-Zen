@@ -14,6 +14,10 @@
 #define SYMBOL 2
 #define MEDIA  3
 
+&kscan0 {
+        debounce-period = <10>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -35,7 +39,14 @@
           key-positions = <6 7>;
           bindings = <&kp LEFT_PARENTHESIS>;
         };
+         
+        combo_leftpar {
+          timeout-ms = <50>;
+          key-positions = <7 8>;
+          bindings = <&kp RIGHT_PARENTHESIS>;
+        };
 };
+        
         keymap {
             compatible = "zmk,keymap";
 
