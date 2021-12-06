@@ -40,7 +40,7 @@
           bindings = <&kp LEFT_PARENTHESIS>;
         };
          
-        combo_leftpar {
+        combo_rightpar {
           timeout-ms = <50>;
           key-positions = <7 8>;
           bindings = <&kp RIGHT_PARENTHESIS>;
