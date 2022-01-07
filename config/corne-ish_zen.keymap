@@ -1,4 +1,4 @@
--/*
+/*
 *
 * Copyright (c) 2021 lowprokb.ca
 * SPDX-License-Identifier: MIT
@@ -19,7 +19,7 @@
         debounce-period = <10>;
 };
 
-/ {
+/ {  
     combos {
         compatible = "zmk,combos";
         
@@ -41,8 +41,8 @@
           bindings = <&kp RIGHT_PARENTHESIS>;
         };
      }; 
-  
-     behaviors {
+
+    behaviors {
         hm: homerow_mods {
            compatible = "zmk,behavior-hold-tap";
            label = "homerow mods";
@@ -53,7 +53,7 @@
          };
       };  
 
-      keymap {
+     keymap { 
             compatible = "zmk,keymap";
 
             base_layer {
@@ -115,6 +115,7 @@
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
+
         media_layer {
           label = "MEDIA";
           bindings = <
@@ -129,4 +130,5 @@
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
-    };
+    }; 
+};
