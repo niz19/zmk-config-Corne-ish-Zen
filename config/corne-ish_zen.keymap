@@ -53,7 +53,8 @@
             bindings = <&kp>, <&kp>;
         };
 };  
-        keymap {
+       
+       keymap {
             compatible = "zmk,keymap";
 
             base_layer {
