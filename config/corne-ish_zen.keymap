@@ -41,6 +41,7 @@
           key-positions = <7 8>;
           bindings = <&kp RIGHT_PARENTHESIS>;
         };
+}; 
   
      behaviors {
         hm: homerow_mods {
@@ -51,7 +52,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-  
+};  
         keymap {
             compatible = "zmk,keymap";
 
@@ -129,5 +130,4 @@
             >;
         };
     };
-};
 };
