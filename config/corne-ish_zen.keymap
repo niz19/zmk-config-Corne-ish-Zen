@@ -8,6 +8,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define QWERTY 0
 #define NUMBER 1
@@ -40,7 +41,6 @@
           key-positions = <7 8>;
           bindings = <&kp RIGHT_PARENTHESIS>;
         };
-};
   
      behaviors {
         hm: homerow_mods {
@@ -51,7 +51,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-};
   
         keymap {
             compatible = "zmk,keymap";
