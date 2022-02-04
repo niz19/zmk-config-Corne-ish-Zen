@@ -29,14 +29,14 @@
    combos {
      compatible = "zmk,combos";
 
-       COMBO(med_mo, &tog NUM_L, 30 31)
-       COMBO(fn_mo, &mo FUN_L, 32 33)
-       COMBO(enter, &kp RET, 16 17)
-       COMBO(tab, &kp TAB, 12 13)
-       COMBO(quote, &kp SQT, 15 16)
-       COMBO(esc, &kp ESC, 13 14)
-       COMBO(leftpar, &kp LEFT_PARENTHESIS, 2 3)
-       COMBO(rightpar, &kp RIGHT_PARENTHESIS, 6 7)
+       COMBO(med_mo, &tog 4, 37 38)
+//     COMBO(fn_mo, &mo FUN_L, 39 40)
+       COMBO(enter, &kp RET, 19 20)
+       COMBO(tab, &kp TAB, 15 16)
+       COMBO(quote, &kp SQT, 18 19)
+       COMBO(esc, &kp ESC, 16 17)
+       COMBO(leftpar, &kp LEFT_PARENTHESIS, 3 4)
+       COMBO(rightpar, &kp RIGHT_PARENTHESIS, 7 8)
     };
 
     behaviors {
