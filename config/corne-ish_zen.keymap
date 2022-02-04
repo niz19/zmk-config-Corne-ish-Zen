@@ -19,10 +19,16 @@
         debounce-period = <10>;
 };
 
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+  };
+
 / {
    combos {
      compatible = "zmk,combos";
-
 
        COMBO(enter, &kp RET, 19 20)
        COMBO(tab, &kp TAB, 15 16)
