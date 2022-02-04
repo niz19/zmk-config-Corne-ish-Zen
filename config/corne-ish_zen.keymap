@@ -38,10 +38,6 @@
        COMBO(rightbracket, &kp RIGHT_BRACKET, 6 7)
     };
 
-&kscan0 {
-        debounce-period = <10>;
-};
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
