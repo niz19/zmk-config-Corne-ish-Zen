@@ -14,38 +14,44 @@
 #define SYMBOL 2
 #define MEDIA  3
 
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+  };
+
+// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
+&lt { quick_tap_ms = <200>; };
+
+/ {
+   combos {
+     compatible = "zmk,combos";
+
+       COMBO(enter, &kp RET, 19 20)
+       COMBO(tab, &kp TAB, 15 16)
+       COMBO(esc, &kp ESC, 16 17)
+       COMBO(quote, &kp SQT, 18 19)
+       COMBO(leftpar, &kp LEFT_PARENTHESIS, 3 4)
+       COMBO(rightpar, &kp RIGHT_PARENTHESIS, 7 8)
+       COMBO(leftbracket, &kp LEFT_BRACKET, 2 3)
+       COMBO(rightbracket, &kp RIGHT_BRACKET, 6 7)
+    };
+
 &kscan0 {
         debounce-period = <10>;
 };
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-        
-        combo_tab {
-          timeout-ms = <50>;
-          key-positions = <15 16>;
-          bindings = <&kp TAB>;
-        };
-        
-        combo_enter {
-          timeout-ms = <50>;
-          key-positions = <38 39>;
-          bindings = <&kp ENTER>;
-        };
-
-        combo_leftpar {
-          timeout-ms = <50>;
-          key-positions = <6 7>;
-          bindings = <&kp LEFT_PARENTHESIS>;
-        };
-         
-        combo_rightpar {
-          timeout-ms = <50>;
-          key-positions = <7 8>;
-          bindings = <&kp RIGHT_PARENTHESIS>;
-        };
-};
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+	    };
+    };
         
         keymap {
             compatible = "zmk,keymap";
