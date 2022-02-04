@@ -33,7 +33,7 @@
    combos {
      compatible = "zmk,combos";
 
-       COMBO(med_mo, &tog NUM_L, 37 38)
+       COMBO(med_mo, &tog NUM, 37 38)
        COMBO(enter, &kp RET, 19 20)
        COMBO(tab, &kp TAB, 15 16)
        COMBO(quote, &kp SQT, 18 19)
