@@ -34,6 +34,8 @@
        COMBO(quote, &kp SQT, 18 19)
        COMBO(leftpar, &kp LEFT_PARENTHESIS, 3 4)
        COMBO(rightpar, &kp RIGHT_PARENTHESIS, 7 8)
+       COMBO(vimslash, &kp FSLH, 32 33)
+       COMBO(question, &kp QMARK, 26 27)
        COMBO(leftbracket, &kp LEFT_BRACKET, 4 5)
        COMBO(rightbracket, &kp RIGHT_BRACKET, 6 7)
     };
