@@ -34,7 +34,7 @@
        COMBO(quote, &kp SQT, 18 19)
        COMBO(leftpar, &kp LEFT_PARENTHESIS, 3 4)
        COMBO(rightpar, &kp RIGHT_PARENTHESIS, 7 8)
-       COMBO(leftbracket, &kp LEFT_BRACKET, 2 3)
+       COMBO(leftbracket, &kp LEFT_BRACKET, 4 5)
        COMBO(rightbracket, &kp RIGHT_BRACKET, 6 7)
     };
 
@@ -58,11 +58,11 @@
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
              &kp ESC       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P         &kp TILDE
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &kp LALT      &kp A         &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+             &none         &hm LSHFT A   &hm LALT S    &hm LCTRL D   &hm LGUI  F   &kp G             &kp H         &hm RGUI J    &hm RCTRL K   &hm LALT L    &hm LSHFT SEMI  &kp SQT
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
              &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp LSHFT
         // ╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┤─────────────╯
-                                                       &kp LCTRL      &kp LGUI     &lt 1 SPACE       &kp BSPC      &sl 2         &kp ENTER
+                                                       &none         &sl 3         &lt 1 SPACE      &mt LSHFT BKSP &sl 2         &kp ENTER
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
