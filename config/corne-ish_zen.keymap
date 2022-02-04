@@ -15,10 +15,6 @@
 #define NUM 3
 #define MED 4
 
-//&kscan0 {
-//        debounce-period = <10>;
-// };
-
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
     timeout-ms = <50>; \
