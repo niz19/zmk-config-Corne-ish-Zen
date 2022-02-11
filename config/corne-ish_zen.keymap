@@ -12,11 +12,12 @@
 #define NIZ 0
 #define NAV 1
 #define SYM 2
-#define MED 3
+#define NUM 3
+#define MED 4
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <50>; \
+    timeout-ms = <40>; \
     bindings = <BINDINGS>; \
     key-positions = <KEYPOS>; \
   };
@@ -32,12 +33,14 @@
        COMBO(tab, &kp TAB, 15 16)
        COMBO(esc, &kp ESC, 16 17)
        COMBO(quote, &kp SQT, 18 19)
-       COMBO(leftpar, &kp LEFT_PARENTHESIS, 3 4)
+       COMBO(leftpar, &kp LEFT_PARENTHESIS, 6 7)
        COMBO(rightpar, &kp RIGHT_PARENTHESIS, 7 8)
        COMBO(vimslash, &kp FSLH, 32 33)
        COMBO(question, &kp QMARK, 26 27)
-       COMBO(leftbracket, &kp LEFT_BRACKET, 4 5)
-       COMBO(rightbracket, &kp RIGHT_BRACKET, 6 7)
+       COMBO(leftbracket, &kp LEFT_BRACKET, 4 16)
+       COMBO(rightbracket, &kp RIGHT_BRACKET, 5 17)
+       COMBO(leftbrace, &kp LEFT_BRACE, 6 18)
+       COMBO(rightbrace, &kp RIGHT_BRACE, 7 19)
     };
 
     behaviors {
@@ -60,11 +63,11 @@
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
              &none         &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P           &kp TILDE
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &none         &hm LSHFT A   &hm LALT S    &hm LCTRL D   &hm LGUI  F   &kp G             &kp H         &hm RGUI J    &hm RCTRL K   &hm LALT L    &hm LSHFT SEMI  &kp SQT
+             &none         &kp A         &hm LALT S    &hm LCTRL D   &hm LGUI  F   &kp G             &kp H         &hm RGUI J    &hm RCTRL K   &hm LALT L    &hm LSHFT SEMI  &kp SQT
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        &kp LSHFT
+             &kp LSHFT     &hm LSHFT Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        &kp LSHFT
         // ╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┤─────────────╯
-                                                       &none         &sl 3         &lt 1 SPACE      &mt LSHFT BKSP &sl 2         &none
+                                                       &none         &sl 2         &lt 1 SPACE      &mt LSHFT BKSP &sl 2         &none
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
@@ -73,32 +76,48 @@
             label = "NAV";
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &trans        &mo 3        &trans        &trans        &trans        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp TILDE
+             &mo 4         &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &trans
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &trans        &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI      &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans 
+             &trans        &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI      &kp LC(LARW)      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans 
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &kp LSHFT     &trans        &trans        &trans        &trans        &trans            &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        &trans
+             &trans        &trans        &trans        &trans        &trans        &kp LC(RARW)      &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        &trans
         // ╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┤─────────────╯
                                                        &trans        &trans        &trans            &kp DEL       &kp RET       &none
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
 
+
+
         symbol_layer {
             label = "SYM";
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &trans        &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LG(N6)    &kp LG(N7)    &kp BSLH
+             &trans        &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp BSLH      &none         &none
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &mo 3         &kp TILDE     &none         &kp DQT       &kp SQT       &kp GRAVE         &kp MINUS     &kp EQUAL     &kp LG(N1)    &kp LG(N2)    &kp LG(N3)    &kp PIPE     
+             &mo 3         &kp TILDE     &none         &kp DQT       &kp SQT       &kp GRAVE         &kp MINUS     &kp EQUAL     &none         &none         &none         &kp PIPE     
         // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
-             &kp LSHFT     &kp F1        &kp F2        &kp F5        &kp F6        &kp F10           &kp UNDER     &kp PLUS      &kp LG(N4)    &kp LG(N5)    &kp BSLH      &kp RBRC
+             &kp LSHFT     &kp F1        &kp F2        &kp F5        &kp F6        &kp F10           &kp UNDER     &kp PLUS      &none         &none         &kp BSLH      &kp RBRC
         // ╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┤─────────────╯
                                                        &kp LC(LARW)  &kp LC(RARW)  &kp SPACE         &kp BSPC      &kp DEL       &none
         //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
 
+        number_layer {
+            label = "NUM";
+            bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+             &trans        &trans        &trans        &trans        &trans        &trans            &kp N7        &kp N8        &kp N9        &none         &none         &none       
+        // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
+             &trans        &trans        &trans        &trans        &trans        &trans            &kp N4        &kp N5        &kp N6        &none         &none         &none
+        // ├─────────────├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────┤
+             &trans        &trans        &trans        &trans        &trans        &trans            &kp N1        &kp N2        &kp N3        &kp DOT       &kp FLSH      &none
+        // ╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┤─────────────╯
+                                                       &none         &none         &none             &kp BSPC      &kp DEL       &kp N0
+        //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+      >;
+    };
         media_layer {
           label = "MED";
           bindings = <
