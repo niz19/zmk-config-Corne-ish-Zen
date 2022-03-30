@@ -23,7 +23,8 @@
   };
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
+&lt { quick_tap_ms = <200>; }
+&mt { quick_tap_ms = <200>; };
 
 / {
    combos {
